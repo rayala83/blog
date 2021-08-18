@@ -18,21 +18,16 @@ use App\Http\Controllers\CursoController;
 Route::get('/',HomeController::class);
 
 
-Route::get('cursos',[CursoController::class, 'index']);
+Route::get('cursos',[CursoController::class, 'index'])->name('cursos.index');
 
-Route::get('cursos/create', [CursoController::class, 'create']);
+Route::get('cursos/create', [CursoController::class, 'create'])->name('cursos.create');
 
-Route::get('cursos/{curso}', [CursoController::class, 'show']);
+Route::post('cursos', [CursoController::class, 'store'])->name('cursos.store');
 
-// Route::get('cursos/{curso}/{categoria?}', function ($curso, $categoria = null) {
-    
-//     if($categoria){
-//         return "Bienvenido al curso $curso, de la categoria $categoria";
+Route::get('cursos/{id}', [CursoController::class, 'show'])->name('cursos.show');
 
-//     }else{
-//         return "Bienvenido al curso: $curso";
+Route::get('cursos/{curso}/edit', [CursoController::class, 'edit'])->name('cursos.edit');
 
-//     }
-    
-    
-// });
+
+
+
